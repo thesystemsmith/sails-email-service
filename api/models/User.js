@@ -7,8 +7,8 @@
 
 module.exports = {
 
+  tableName: "users",
   attributes: {
-    tableName: "users",
 
     fullName: {
       type: 'string',
@@ -53,12 +53,24 @@ passwordResetToken: {
       example: 1508944074211,
       columnName: 'password_reset_token_expires_at',
     },
+    createdAt: { type: 'number', autoCreatedAt: true, columnName: 'created_at'},
+    updatedAt: { type: 'number', autoUpdatedAt: true, columnName: 'updated_at'},
   },
 
   // remove password from the response object
   customToJSON: function () {
     return _.omit(this, ["password"]);
   },
+
+  // LIFE CYCLE
+beforeCreate: async function (values, proceed) {
+  // Hash password
+  const hashedPassword = await sails.helpers.passwords.hashPassword(
+    values.password
+  );
+  values.password = hashedPassword;
+  return proceed();
+},
 
 };
 
