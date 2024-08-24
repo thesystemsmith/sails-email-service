@@ -28,7 +28,7 @@ module.exports = {
   },
 
 
-  fn: async function (inputs) {
+  fn: async function (inputs, exits) {
 
     if (!inputs.token) {
       return exits.invalidOrExpiredToken({
