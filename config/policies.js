@@ -19,4 +19,5 @@ module.exports.policies = {
 
   // '*': true,
 
+  "user/login": 'can-login'
 };
