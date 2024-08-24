@@ -19,7 +19,7 @@ module.exports = {
   fn: async function (inputs) {
     const transporter = nodemailer.createTransport(
       nodemailerSendgrid({
-        apiKey: sails.config.sendGridAPIkey || process.env.SENDGRID_API_KEY,
+        apiKey: sails.config.SENDGRID_API_KEY || process.env.SENDGRID_API_KEY,
       })
     );
     transporter.use(
@@ -37,7 +37,7 @@ module.exports = {
     );
     try {
       let emailOptions = {
-        from: "Abdul Rasheed <abdulrasheed.test@gmail.com>",
+        from: "Abdul Rasheed <abdulrasheed.techy@gmail.com>",
         ...inputs.options,
       };
       await transporter.sendMail(emailOptions);
