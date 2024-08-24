@@ -6,6 +6,9 @@
   "keywords": [],
   "dependencies": {
     "@sailshq/lodash": "^3.10.6",
+    "nodemailer": "^6.9.14",
+    "nodemailer-express-handlebars": "^6.1.2",
+    "nodemailer-sendgrid": "^1.0.3",
     "sails": "^1.5.11",
     "sails-hook-organics": "^2.2.2",
     "sails-hook-orm": "^4.0.3",
